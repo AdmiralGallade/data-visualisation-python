@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import seaborn as sns
 
 #print(df.head(10)) #View first 10 data rows
 
@@ -57,5 +57,28 @@ plt.xlabel('Date')
 plt.ylabel('Popularity')
 plt.title('Popularity of AI terms by date')
 plt.grid(True)
-plt.text(x='data_x', y=80, s=r'$\lambda= value, r^2=to_be_calc$') #Coordinates use the same units as the graph
+plt.text(x='data_x', y=80, s=r'lambda=Value r^2=to_be_calc') #Coordinates use the same units as the graph
 plt.annotate('A red arrow', xy=('2014-01-01', 30), xytext=('2006-01-01', 50), arrowprops={'facecolor':'red', 'shrink':0.05})
+
+
+
+
+#Seaborne
+
+sns.set()
+sns.scatterplot(df['Mes'], df['data science'])
+
+#Heatmap
+
+sns.heatmap(df.corr(), annot=True, fmt='.2f')
+
+#Pair plot
+sns.pairplot(df)
+
+sns.pairplot(df, hue='categorical')
+
+sns.jointplot(x='data science', y='machine learning', data=df)
+
+#violin..plot?
+
+sns.catplot(x='categorical', y='data science', kind='violin', data=df)
