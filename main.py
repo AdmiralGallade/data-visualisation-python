@@ -32,3 +32,17 @@ axes[0, 0].hist(df['data science'])
 axes[0, 1].scatter(df['Mes'], df['data science'])
 axes[1, 0].plot(df['Mes'], df['machine learning'])
 axes[1, 1].plot(df['Mes'], df['deep learning'])
+
+
+plt.scatter(df['data science'], df['machine learning'])
+plt.scatter(df['data science'], df['deep learning'])
+
+
+#Bar chart
+
+plt.bar(df['Mes'], df['machine learning'], width=20)
+
+
+#Histogram
+
+plt.hist(df['deep learning'], bins=15)
