@@ -12,6 +12,8 @@ import matplotlib.pyplot as plt
 #using python interactive.
 
 df = pd.read_csv('temporal.csv')
+
+
 plt.plot(df['Mes'], df['data science'], label='data science') #The parameter label is to indicate the legend. This doesn't mean that it will be shown, we'll have to use another command that I'll explain later.
 
 
@@ -23,3 +25,10 @@ plt.ylabel('Popularity')
 plt.title('Popularity of AI terms by date')
 plt.grid(True)
 plt.legend()
+
+
+fig, axes = plt.subplots(2,2)
+axes[0, 0].hist(df['data science'])
+axes[0, 1].scatter(df['Mes'], df['data science'])
+axes[1, 0].plot(df['Mes'], df['machine learning'])
+axes[1, 1].plot(df['Mes'], df['deep learning'])
