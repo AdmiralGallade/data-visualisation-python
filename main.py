@@ -46,3 +46,16 @@ plt.bar(df['Mes'], df['machine learning'], width=20)
 #Histogram
 
 plt.hist(df['deep learning'], bins=15)
+
+
+#Marked Data
+
+plt.plot(df['Mes'], df['data science'], label='data science')
+plt.plot(df['Mes'], df['machine learning'], label='machine learning')
+plt.plot(df['Mes'], df['deep learning'], label='deep learning')
+plt.xlabel('Date')
+plt.ylabel('Popularity')
+plt.title('Popularity of AI terms by date')
+plt.grid(True)
+plt.text(x='data_x', y=80, s=r'$\lambda= value, r^2=to_be_calc$') #Coordinates use the same units as the graph
+plt.annotate('A red arrow', xy=('2014-01-01', 30), xytext=('2006-01-01', 50), arrowprops={'facecolor':'red', 'shrink':0.05})
