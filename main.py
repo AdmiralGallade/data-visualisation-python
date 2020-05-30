@@ -12,7 +12,9 @@ import matplotlib.pyplot as plt
 #using python interactive.
 
 df = pd.read_csv('temporal.csv')
-
 plt.plot(df['Mes'], df['data science'], label='data science') #The parameter label is to indicate the legend. This doesn't mean that it will be shown, we'll have to use another command that I'll explain later.
 
 
+plt.plot(df['Mes'], df['data science'], label='data science')
+plt.plot(df['Mes'], df['machine learning'], label='machine learning')
+plt.plot(df['Mes'], df['deep learning'], label='deep learning')
