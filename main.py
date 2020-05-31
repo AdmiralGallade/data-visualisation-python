@@ -2,6 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
+from bokeh.plotting import figure, output_file, save
+output_file('data_science_popularity.html')
+
 #print(df.head(10)) #View first 10 data rows
 
 #print(df.describe())
@@ -82,3 +86,10 @@ sns.jointplot(x='data science', y='machine learning', data=df)
 #violin..plot?
 
 sns.catplot(x='categorical', y='data science', kind='violin', data=df)
+
+
+#bokeh
+
+p = figure(title='data science', x_axis_label='Mes', y_axis_label='data science')
+p.line(df['Mes'], df['data science'], legend='popularity', line_width=2)
+save(p)
