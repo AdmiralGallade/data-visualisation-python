@@ -133,3 +133,12 @@ df2['Latitude'] = df2['geometry'].apply(lambda l: l.y)
 df2['Longitude'] = df2['geometry'].apply(lambda l: l.x)
 
 
+m3 = folium.Map(location=[39.326234,-4.838065], tiles='openstreetmap', zoom_start=3)
+def color_producer(val):
+	if val <= 50:
+		return 'red'
+	else:
+		return 'green'
+for i in range(0,len(df2)):
+	folium.Circle(location=[df2.iloc[i]['Latitud'], df2.iloc[i]['Longitud']], radius=5000*df2.iloc[i]['data science'], color=color_producer(df2.iloc[i]['data science'])).add_to(m3)
+m3.save('map3.html')
