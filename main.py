@@ -93,3 +93,35 @@ sns.catplot(x='categorical', y='data science', kind='violin', data=df)
 p = figure(title='data science', x_axis_label='Mes', y_axis_label='data science')
 p.line(df['Mes'], df['data science'], legend='popularity', line_width=2)
 save(p)
+
+output_file('multiple_graphs.html')
+s1 = figure(width=250, plot_height=250, title='data science')
+s1.circle(df['Mes'], df['data science'], size=10, color='navy', alpha=0.5)
+s2 = figure(width=250, height=250, x_range=s1.x_range, y_range=s1.y_range, title='machine learning') #share both axis range
+s2.triangle(df['Mes'], df['machine learning'], size=10, color='red', alpha=0.5)
+s3 = figure(width=250, height=250, x_range=s1.x_range, title='deep learning') #share only one axis range
+s3.square(df['Mes'], df['deep learning'], size=5, color='green', alpha=0.5)
+p = gridplot([[s1, s2, s3]])
+save(p)
+
+
+
+
+#folium
+
+
+import folium
+m1 = folium.Map(location=[41.38, 2.17], tiles='openstreetmap', zoom_start=18)
+m1.save('map1.html')
+
+
+m2 = folium.Map(location=[41.38, 2.17], tiles='openstreetmap', zoom_start=16)
+folium.Marker([41.38, 2.176], popup='<i>You can use whatever HTML code you want</i>', tooltip='click here').add_to(m2)
+folium.Marker([41.38, 2.174], popup='<b>You can use whatever HTML code you want</b>', tooltip='dont click here').add_to(m2)
+m2.save('map2.html')
+
+
+
+
+
+
