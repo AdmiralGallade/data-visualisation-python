@@ -15,6 +15,8 @@ output_file('data_science_popularity.html')
 
 #using python interactive.
 
+#I keep forgetting about shift+enter in visual studio code lol
+
 df = pd.read_csv('temporal.csv')
 
 
